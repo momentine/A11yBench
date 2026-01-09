@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LLM HTML Persona Outputs</title>
+  <title>LLM HTML Standard + Persona Outputs</title>
   <style>
     :root {
       color-scheme: light;
@@ -200,6 +200,7 @@
     tbody tr:hover td {
       background: rgba(0,0,0,.015);
     }
+    
 
     /* Code blocks inside the output cells */
     pre {
@@ -227,6 +228,18 @@
       white-space: nowrap;
       border: 0;
     }
+
+        .pill{
+      text-decoration:none;
+      border:1px solid var(--border);
+      background: var(--surface);
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:13px;
+      color: var(--text);
+      white-space:nowrap;
+    }
+    .pill:hover{filter:brightness(.985)}
 
     /* Better anchor scroll positioning */
     [id] { scroll-margin-top: 80px; }
@@ -270,15 +283,24 @@
   }
 </style>
 
+
 </head>
 <body>
   <header class="topbar">
     <div class="topbar-inner">
       <div class="title">
-        <h1>Persona outputs</h1>
-        <p>Filter on the left, open a component, then open per-row code blocks.</p>
+        <h1>Standard + Persona</h1>
+        <p><p>
+Outputs generated using a standardized prompt structure with defined user persona.
+</p>
+    <nav class="nav" aria-label="Site">
+      <a class="pill" href="/A11yBench">Overview</a>
+      <a class="pill" href="/default">Default</a>
+      <a class="pill" href="/guide">Standard practice</a>
+      <a class="pill" href="/A11yBench/persona">Standard + persona</a>
+    </nav>
       </div>
-      <div class="top-controls" role="search">
+            <div class="top-controls" role="search">
   <label class="sr-only" for="componentFilter">Find components</label>
   <input id="componentFilter" class="top-search" type="search" placeholder="Find components…" autocomplete="off" />
   <button type="button" class="btn btn-small" data-top-action="expand">Expand all</button>
