@@ -352,6 +352,78 @@
   }
 </style>
 
+
+<style id="mobile-table-cards">
+  /* Make the per-row dropdowns (details) behave nicely on narrow screens */
+  details { max-width: 100%; }
+  details > summary { flex-wrap: wrap; }
+
+  /* Mobile: turn each result row into a stacked "card" so the dropdowns don't get cramped */
+  @media (max-width: 720px){
+    .content{ overflow-x: visible; }
+
+    .content table{ min-width: 0 !important; width: 100%; }
+    .content thead{ display: none; }
+    .content table, .content tbody, .content tr, .content td{ display: block; width: 100%; }
+
+    .content tbody tr{
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 10px 12px;
+      margin: 12px 0;
+      background: var(--bg);
+    }
+    .content tbody td{
+      border: 0;
+      padding: 8px 0;
+    }
+    .content tbody td + td{
+      border-top: 1px dashed var(--border);
+      padding-top: 10px;
+      margin-top: 6px;
+    }
+
+    .content tbody td::before{
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .content tbody td:nth-child(1)::before{ content: "Model"; }
+    .content tbody td:nth-child(2)::before{ content: "Variant"; }
+    .content tbody td:nth-child(3)::before{ content: "Prompt"; }
+    .content tbody td:nth-child(4)::before{ content: "Output"; }
+    .content tbody td:nth-child(5)::before{ content: "Accessibility Score"; }
+    .content tbody td:nth-child(6)::before{ content: "File link"; }
+
+    /* The inner dropdown for "View code" */
+    .content tbody td details{
+      margin: 6px 0 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+    .content tbody td details > summary{
+      padding: 10px 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .content tbody td details[open] > summary{
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    .content tbody td pre{
+      margin-top: 10px;
+    }
+  }
+</style>
+
 </head>
 <body>
   <header class="topbar">
