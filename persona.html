@@ -64,18 +64,13 @@
       color: var(--muted);
     }
 
-    /* Layout: reuse the existing grid markup, but make it look nicer */
-    .grid {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 16px;
-      max-width: 1200px;
-      margin: 16px auto;
-      padding: 0 16px 24px;
-    }
-    @media (max-width: 980px) {
-      .grid { grid-template-columns: 1fr; }
-      .sidebar { position: static !important; }
+    /* Layout */
+.grid{
+  max-width: 1200px;
+  margin: 16px auto;
+  padding: 0 16px 28px;
+}
+.sidebar { position: static !important; }
     }
 
     .panel {
@@ -85,65 +80,6 @@
       box-shadow: 0 1px 0 rgba(0,0,0,.03);
       overflow: hidden;
       min-width: 0;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      position: sticky;
-      top: 64px;
-      align-self: start;
-      padding: 14px;
-      max-height: calc(100vh - 84px);
-      overflow: auto;
-    }
-    .muted {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin-bottom: 10px;
-    }
-    .sidebar-controls { display: grid; gap: 10px; margin-bottom: 12px; }
-    .sidebar-search {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      font-size: 14px;
-      background: var(--bg);
-    }
-    .sidebar-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-    .btn {
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
-      border-radius: 12px;
-      padding: 8px 10px;
-      font-size: 13px;
-      cursor: pointer;
-    }
-    .btn:hover { filter: brightness(.98); }
-    .btn-small { padding: 6px 10px; font-size: 12.5px; }
-
-    .sidebar a {
-      display: block;
-      padding: 7px 10px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: var(--text);
-      border: 1px solid transparent;
-      margin: 2px 0;
-      font-size: 13.5px;
-      overflow-wrap: anywhere;
-    }
-    .sidebar a:hover {
-      background: var(--surface);
-      border-color: var(--border);
-    }
-    .sidebar a.is-active {
-      background: rgba(37, 99, 235, .08);
-      border-color: rgba(37, 99, 235, .25);
     }
 
     /* Content */
@@ -241,6 +177,44 @@
     }
     .pill:hover{filter:brightness(.985)}
 
+    /* Nav pills: responsive + nicer spacing */
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+      margin-top:10px;
+    }
+
+    @media (max-width: 720px){
+      .topbar-inner{
+        flex-direction:column;
+        align-items:stretch;
+      }
+      .top-controls{
+        justify-content:flex-start;
+        width:100%;
+      }
+      .top-search{
+        width:100%;
+        min-width:0;
+      }
+      /* Keep tabs usable on small screens */
+      .nav{
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+        padding-bottom:6px;
+        margin-top:12px;
+      }
+      .pill{
+        flex:0 0 auto;
+        padding:8px 11px;
+        font-size:13px;
+      }
+    }
+
+
     /* Better anchor scroll positioning */
     [id] { scroll-margin-top: 80px; }
 
@@ -251,38 +225,79 @@
       .sidebar { display: none; }
       pre { background: #f3f4f6; color: #111827; border: 1px solid #e5e7eb; }
     }
+  
+
+/* Top controls */
+.top-controls{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.top-search{
+  width:min(420px, 52vw);
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  font-size:14px;
+  background:var(--bg);
+}
+.btn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 8px 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(.98); }
+.btn:active { transform: translateY(0.5px); }
+.btn-small { padding: 7px 10px; font-size: 12.5px; }
+
+/* Panels / content spacing */
+.panel{
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.03), 0 10px 25px rgba(17,24,39,.06);
+  overflow: hidden;
+  min-width: 0;
+}
+.content{ padding: 14px; }
+
+/* Tables: make wide tables usable on phones */
+.table-wrap{
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg);
+  margin-top: 10px;
+}
+table{
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 13.25px;
+}
+thead th{
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 1;
+}
+tbody tr:nth-child(even) td{ background: rgba(0,0,0,.01); }
+@media (max-width: 840px){
+  table{ min-width: 880px; }
+}
+@media (prefers-reduced-motion: reduce){
+  *{ scroll-behavior: auto !important; transition: none !important; }
+}
   </style>
-
-<style>
-  /* Force single-column layout and remove sidebar entirely */
-  .grid { display: block !important; max-width: 1200px; margin: 16px auto; padding: 0 16px 24px; }
-  .sidebar { display: none !important; }
-</style>
-
-
-<style>
-  .top-controls{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    flex-wrap:wrap;
-    justify-content:flex-end;
-  }
-  .top-search{
-    width:min(420px, 52vw);
-    padding:10px 12px;
-    border:1px solid var(--border);
-    border-radius:12px;
-    font-size:14px;
-    background:var(--bg);
-  }
-  @media (max-width: 560px){
-    .top-search{ width: 100%; }
-    .top-controls{ width:100%; justify-content:stretch; }
-    .top-controls .btn{ flex:1; }
-  }
-</style>
-
 
 </head>
 <body>
@@ -310,144 +325,14 @@ Outputs generated using a standardized prompt structure with defined user person
   </header>
 
   <div class="grid">
-  <aside class="panel sidebar">
-    <div class="muted">Components</div>
-    
-
-  
-<div class="sidebar-controls">
-  <label class="sr-only" for="q">Filter components</label>
-  <input id="q" class="sidebar-search" type="search" placeholder="Filter components / models / prompts…" autocomplete="off" />
-  <div class="sidebar-actions">
-    <button type="button" class="btn btn-small" data-action="expand">Expand all</button>
-    <button type="button" class="btn btn-small" data-action="collapse">Collapse all</button>
-  </div>
-</div>
-<a href="#checkbox-group-with-accessible-description">checkbox-group-with-accessible-description</a>
-
-  <a href="#checkbox-group-with-validation-error">checkbox-group-with-validation-error</a>
-
-  <a href="#checkbox-group">checkbox-group</a>
-
-  <a href="#color-picker">color-picker</a>
-
-  <a href="#confirmation-checkbox-with-link">confirmation-checkbox-with-link</a>
-
-  <a href="#confirmation-checkbox">confirmation-checkbox</a>
-
-  <a href="#credit-card-field">credit-card-field</a>
-
-  <a href="#date-field">date-field</a>
-
-  <a href="#datetime-local-field">datetime-local-field</a>
-
-  <a href="#disabled-field">disabled-field</a>
-
-  <a href="#document-file-upload-field">document-file-upload-field</a>
-
-  <a href="#email-field-with-accessible-description">email-field-with-accessible-description</a>
-
-  <a href="#email-field-with-autocomplete-suggestion">email-field-with-autocomplete-suggestion</a>
-
-  <a href="#email-field-with-placeholder">email-field-with-placeholder</a>
-
-  <a href="#email-field-with-required-autocomplete-and-accessible-description">email-field-with-required-autocomplete-and-accessible-description</a>
-
-  <a href="#email-field-with-required">email-field-with-required</a>
-
-  <a href="#email-field-with-validation-error">email-field-with-validation-error</a>
-
-  <a href="#email-field">email-field</a>
-
-  <a href="#file-upload-field-unrestricted">file-upload-field-unrestricted</a>
-
-  <a href="#image-file-upload-field">image-file-upload-field</a>
-
-  <a href="#multiple-file-upload-field">multiple-file-upload-field</a>
-
-  <a href="#password-field-required">password-field-required</a>
-
-  <a href="#password-field-with-accessible-description">password-field-with-accessible-description</a>
-
-  <a href="#password-field-with-autocomplete-suggestion">password-field-with-autocomplete-suggestion</a>
-
-  <a href="#password-field-with-validation-error">password-field-with-validation-error</a>
-
-  <a href="#password-field">password-field</a>
-
-  <a href="#phone-number-field">phone-number-field</a>
-
-  <a href="#quantity-field">quantity-field</a>
-
-  <a href="#radio-group-with-accessible-description">radio-group-with-accessible-description</a>
-
-  <a href="#radio-group-with-validation-error">radio-group-with-validation-error</a>
-
-  <a href="#radio-group">radio-group</a>
-
-  <a href="#range-slider">range-slider</a>
-
-  <a href="#readonly-field">readonly-field</a>
-
-  <a href="#reset-button">reset-button</a>
-
-  <a href="#search-field">search-field</a>
-
-  <a href="#select-field-with-accessible-description">select-field-with-accessible-description</a>
-
-  <a href="#select-field-with-required">select-field-with-required</a>
-
-  <a href="#select-field">select-field</a>
-
-  <a href="#submit-button-with-icon">submit-button-with-icon</a>
-
-  <a href="#submit-button">submit-button</a>
-
-  <a href="#text-field-required">text-field-required</a>
-
-  <a href="#text-field-with-accessible-description">text-field-with-accessible-description</a>
-
-  <a href="#text-field-with-autocomplete-suggestion">text-field-with-autocomplete-suggestion</a>
-
-  <a href="#text-field-with-non-visible-label">text-field-with-non-visible-label</a>
-
-  <a href="#text-field-with-pattern">text-field-with-pattern</a>
-
-  <a href="#text-field-with-placeholder">text-field-with-placeholder</a>
-
-  <a href="#text-field-with-validation-error">text-field-with-validation-error</a>
-
-  <a href="#text-field">text-field</a>
-
-  <a href="#textarea-field-with-accessible-description">textarea-field-with-accessible-description</a>
-
-  <a href="#textarea-field-with-required">textarea-field-with-required</a>
-
-  <a href="#textarea-field-with-validation-error">textarea-field-with-validation-error</a>
-
-  <a href="#textarea-field">textarea-field</a>
-
-  <a href="#textarea-with-character-counter">textarea-with-character-counter</a>
-
-  <a href="#time-field">time-field</a>
-
-  <a href="#toggle-switch-group-with-multiple-types">toggle-switch-group-with-multiple-types</a>
-
-  <a href="#toggle-switch-with-accessible-description">toggle-switch-with-accessible-description</a>
-
-  <a href="#toggle-switch">toggle-switch</a>
-
-  <a href="#url-field">url-field</a>
-
-
-  </aside>
-  <section class="panel content">
+<section class="panel content">
     
 <p><a id="checkbox-group-with-accessible-description"></a></p>
 <details>
   <summary><strong>Checkbox Group with Accessible Description</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -1365,14 +1250,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="checkbox-group-with-validation-error"></a></p>
 <details>
   <summary><strong>Checkbox Group with Validation Error</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -2378,14 +2264,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="checkbox-group"></a></p>
 <details>
   <summary><strong>Checkbox Group</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -3231,14 +3118,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="color-picker"></a></p>
 <details>
   <summary><strong>Color Picker</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -3868,14 +3756,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="confirmation-checkbox-with-link"></a></p>
 <details>
   <summary><strong>Confirmation Checkbox with Link</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -4439,14 +4328,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="confirmation-checkbox"></a></p>
 <details>
   <summary><strong>Confirmation Checkbox</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -5004,14 +4894,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="credit-card-field"></a></p>
 <details>
   <summary><strong>Credit Card Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -5652,14 +5543,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="date-field"></a></p>
 <details>
   <summary><strong>Date Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -6198,14 +6090,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="datetime-local-field"></a></p>
 <details>
   <summary><strong>Datetime-local Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -6774,14 +6667,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="disabled-field"></a></p>
 <details>
   <summary><strong>Disabled Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -7311,14 +7205,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="document-file-upload-field"></a></p>
 <details>
   <summary><strong>Document File Upload Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -7938,14 +7833,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="email-field-with-accessible-description"></a></p>
 <details>
   <summary><strong>Email Field with Accessible Description</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -8528,14 +8424,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="email-field-with-autocomplete-suggestion"></a></p>
 <details>
   <summary><strong>Email Field with Autocomplete Suggestion</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -9059,14 +8956,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="email-field-with-placeholder"></a></p>
 <details>
   <summary><strong>Email Field with Placeholder</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -9567,14 +9465,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="email-field-with-required-autocomplete-and-accessible-description"></a></p>
 <details>
   <summary><strong>Email Field with Required, Autocomplete, and Accessible Description</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -10165,14 +10064,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="email-field-with-required"></a></p>
 <details>
   <summary><strong>Email Field with Required</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -10758,14 +10658,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="email-field-with-validation-error"></a></p>
 <details>
   <summary><strong>Email Field with Validation Error</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -11426,14 +11327,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="email-field"></a></p>
 <details>
   <summary><strong>Email Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -11980,14 +11882,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="file-upload-field-unrestricted"></a></p>
 <details>
   <summary><strong>File Upload Field (Unrestricted)</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -12535,14 +12438,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="image-file-upload-field"></a></p>
 <details>
   <summary><strong>Image File Upload Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -13106,14 +13010,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="multiple-file-upload-field"></a></p>
 <details>
   <summary><strong>Multiple File Upload Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -13686,14 +13591,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="password-field-required"></a></p>
 <details>
   <summary><strong>Password Field (Required)</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -14196,14 +14102,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="password-field-with-accessible-description"></a></p>
 <details>
   <summary><strong>Password Field with Accessible Description</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -14762,14 +14669,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="password-field-with-autocomplete-suggestion"></a></p>
 <details>
   <summary><strong>Password Field with Autocomplete Suggestion</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -15314,14 +15222,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="password-field-with-validation-error"></a></p>
 <details>
   <summary><strong>Password Field with Validation Error</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -16087,14 +15996,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="password-field"></a></p>
 <details>
   <summary><strong>Password Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -16627,14 +16537,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="phone-number-field"></a></p>
 <details>
   <summary><strong>Phone Number Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -17194,14 +17105,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="quantity-field"></a></p>
 <details>
   <summary><strong>Quantity Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -17800,14 +17712,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="radio-group-with-accessible-description"></a></p>
 <details>
   <summary><strong>Radio Group with Accessible Description</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -18683,14 +18596,15 @@ Outputs generated using a standardized prompt structure with defined user person
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="radio-group-with-validation-error"></a></p>
 <details>
   <summary><strong>Radio Group with Validation Error</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -19718,14 +19632,15 @@ high contrast
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="radio-group"></a></p>
 <details>
   <summary><strong>Radio Group</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -20594,14 +20509,15 @@ high contrast
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="range-slider"></a></p>
 <details>
   <summary><strong>Range Slider</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -21157,14 +21073,15 @@ high contrast
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="readonly-field"></a></p>
 <details>
   <summary><strong>Readonly Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -21733,14 +21650,15 @@ high contrast
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="reset-button"></a></p>
 <details>
   <summary><strong>Reset Button</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -22256,14 +22174,15 @@ high contrast
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="search-field"></a></p>
 <details>
   <summary><strong>Search Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -22795,14 +22714,15 @@ high contrast
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="select-field-with-accessible-description"></a></p>
 <details>
   <summary><strong>Select Field with Accessible Description</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -23466,14 +23386,15 @@ high contrast
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="select-field-with-required"></a></p>
 <details>
   <summary><strong>Select Field with Required</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -24122,14 +24043,15 @@ high contrast
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="select-field"></a></p>
 <details>
   <summary><strong>Select Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -24861,14 +24783,15 @@ high contrast
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="submit-button-with-icon"></a></p>
 <details>
   <summary><strong>Submit Button with Icon</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -25455,14 +25378,15 @@ Submit
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="submit-button"></a></p>
 <details>
   <summary><strong>Submit Button</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -26018,14 +25942,15 @@ Submit
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="text-field-required"></a></p>
 <details>
   <summary><strong>Text Field (Required)</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -26562,14 +26487,15 @@ Submit
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="text-field-with-accessible-description"></a></p>
 <details>
   <summary><strong>Text Field with Accessible Description</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -27112,14 +27038,15 @@ Submit
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="text-field-with-autocomplete-suggestion"></a></p>
 <details>
   <summary><strong>Text Field with Autocomplete Suggestion</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -27699,14 +27626,15 @@ Submit
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="text-field-with-non-visible-label"></a></p>
 <details>
   <summary><strong>Text Field with Non-visible Label</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -28268,14 +28196,15 @@ Submit
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="text-field-with-pattern"></a></p>
 <details>
   <summary><strong>Text Field with Pattern</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -28875,14 +28804,15 @@ Submit
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="text-field-with-placeholder"></a></p>
 <details>
   <summary><strong>Text Field with Placeholder</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -29393,14 +29323,15 @@ Submit
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="text-field-with-validation-error"></a></p>
 <details>
   <summary><strong>Text Field with Validation Error</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -30168,14 +30099,15 @@ Submit
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="text-field"></a></p>
 <details>
   <summary><strong>Text Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -30718,14 +30650,15 @@ Submit
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="textarea-field-with-accessible-description"></a></p>
 <details>
   <summary><strong>Textarea Field with Accessible Description</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -31292,14 +31225,15 @@ Submit
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="textarea-field-with-required"></a></p>
 <details>
   <summary><strong>Textarea Field with Required</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -31829,14 +31763,15 @@ Submit
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="textarea-field-with-validation-error"></a></p>
 <details>
   <summary><strong>Textarea Field with Validation Error</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -32539,14 +32474,15 @@ Submit
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="textarea-field"></a></p>
 <details>
   <summary><strong>Textarea Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -33135,14 +33071,15 @@ Submit
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="textarea-with-character-counter"></a></p>
 <details>
   <summary><strong>Textarea with Character Counter</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -33882,14 +33819,15 @@ textarea.addEventListener(&#x27;input&#x27;, function() {
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="time-field"></a></p>
 <details>
   <summary><strong>Time Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -34479,14 +34417,15 @@ textarea.addEventListener(&#x27;input&#x27;, function() {
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="toggle-switch-group-with-multiple-types"></a></p>
 <details>
   <summary><strong>Toggle Switch Group with Multiple Types</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -35637,14 +35576,15 @@ Push
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="toggle-switch-with-accessible-description"></a></p>
 <details>
   <summary><strong>Toggle Switch with Accessible Description</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -36586,14 +36526,15 @@ Push
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="toggle-switch"></a></p>
 <details>
   <summary><strong>Toggle Switch</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -37422,14 +37363,15 @@ Push
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 <p><a id="url-field"></a></p>
 <details>
   <summary><strong>URL Field</strong></summary>
+<div class="table-wrap">
 <table>
-  <thead>
+<thead>
     <tr>
       <th>Model</th>
       <th>Variant</th>
@@ -37996,7 +37938,7 @@ Push
     </tr>
   </tbody>
 </table>
-
+</div>
 </details>
 
 
@@ -38005,68 +37947,6 @@ Push
 
 
   <script>
-    (function () {
-      const q = document.getElementById('q');
-      const sidebar = document.querySelector('.sidebar');
-      const links = sidebar ? Array.from(sidebar.querySelectorAll('a[href^="#"]')) : [];
-      const detailsBlocks = Array.from(document.querySelectorAll('.content details'));
-      const actionButtons = sidebar ? Array.from(sidebar.querySelectorAll('button[data-action]')) : [];
-
-      function norm(s) { return (s || '').toLowerCase().trim(); }
-
-      // Sidebar active state
-      function setActiveFromHash() {
-        const hash = decodeURIComponent((location.hash || '').replace('#',''));
-        links.forEach(a => a.classList.toggle('is-active', hash && a.getAttribute('href') === '#' + hash));
-      }
-      window.addEventListener('hashchange', setActiveFromHash);
-      setActiveFromHash();
-
-      // Expand/collapse all visible details
-      function setAll(open) {
-        detailsBlocks.forEach(d => {
-          if (d.style.display === 'none') return;
-          d.open = !!open;
-        });
-      }
-
-      actionButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const a = btn.getAttribute('data-action');
-          if (a === 'expand') setAll(true);
-          if (a === 'collapse') setAll(false);
-        });
-      });
-
-      // Filter: match against component slug (sidebar link text) + details summary + table text
-      function applyFilter() {
-        const term = norm(q ? q.value : '');
-        const hasTerm = term.length > 0;
-
-        // Filter sidebar links
-        links.forEach(a => {
-          const t = norm(a.textContent);
-          a.style.display = (!hasTerm || t.includes(term)) ? '' : 'none';
-        });
-
-        // Filter content blocks (details)
-        detailsBlocks.forEach(d => {
-          const summary = d.querySelector('summary');
-          const summaryText = norm(summary ? summary.textContent : '');
-          const tableText = norm(d.textContent);
-          const show = !hasTerm || summaryText.includes(term) || tableText.includes(term);
-          d.style.display = show ? '' : 'none';
-        });
-      }
-
-      if (q) {
-        q.addEventListener('input', applyFilter);
-        applyFilter();
-      }
-    })();
-  </script>
-
-<script>
 (function () {
   document.querySelectorAll('table').forEach(function (table) {
     var theadRow = table.querySelector('thead tr');
