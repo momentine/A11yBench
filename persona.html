@@ -424,6 +424,35 @@
   }
 </style>
 
+
+<style>
+/* === FORCE "View code ▸" TO STAY ON ONE LINE (NO WRAP, EVER) === */
+td details > summary{
+  position: relative;
+  display: block;
+  padding-right: 1.4em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Arrow removed from line flow */
+td details > summary::after{
+  content: "▸";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-weight: 900;
+  pointer-events: none;
+}
+
+td details[open] > summary::after{
+  transform: translateY(-50%) rotate(90deg);
+}
+</style>
+
 </head>
 <body>
   <header class="topbar">
