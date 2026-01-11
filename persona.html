@@ -229,45 +229,17 @@
       border: 0;
     }
 
-        
-/* ---------- Nav pills (Overview / Default / Standard / Persona) ---------- */
-.nav{
-  display:flex;
-  gap:8px;
-  margin-top:8px;
-  flex-wrap:wrap;
-  align-items:center;
-}
-
-.pill{
-  text-decoration:none;
-  border:1px solid var(--border);
-  background: var(--surface);
-  padding:7px 12px;
-  border-radius:999px;
-  font-size:13px;
-  color: var(--text);
-  white-space:nowrap;
-  line-height:1.2;
-}
-
-.pill:hover{ filter:brightness(.985); }
-
-/* Mobile: prevent scrunching */
-@media (max-width: 720px){
-  .nav{
-    flex-wrap:nowrap;
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
-    padding-bottom:6px;
-  }
-  .pill{
-    flex:0 0 auto;
-    font-size:12.5px;
-    padding:8px 11px;
-  }
-}
-
+        .pill{
+      text-decoration:none;
+      border:1px solid var(--border);
+      background: var(--surface);
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:13px;
+      color: var(--text);
+      white-space:nowrap;
+    }
+    .pill:hover{filter:brightness(.985)}
 
     /* Better anchor scroll positioning */
     [id] { scroll-margin-top: 80px; }
@@ -279,46 +251,12 @@
       .sidebar { display: none; }
       pre { background: #f3f4f6; color: #111827; border: 1px solid #e5e7eb; }
     }
-  
-/* Header: stack title/nav and controls on smaller screens */
-@media (max-width: 900px){
-  .topbar-inner{
-    flex-direction:column;
-    align-items:stretch;
-  }
-  .top-controls{
-    justify-content:flex-start;
-    width:100%;
-  }
-  .top-search{
-    width:100%;
-    min-width:0;
-  }
-}
-
-</style>
+  </style>
 
 <style>
   /* Force single-column layout and remove sidebar entirely */
   .grid { display: block !important; max-width: 1200px; margin: 16px auto; padding: 0 16px 24px; }
   .sidebar { display: none !important; }
-
-/* Header: stack title/nav and controls on smaller screens */
-@media (max-width: 900px){
-  .topbar-inner{
-    flex-direction:column;
-    align-items:stretch;
-  }
-  .top-controls{
-    justify-content:flex-start;
-    width:100%;
-  }
-  .top-search{
-    width:100%;
-    min-width:0;
-  }
-}
-
 </style>
 
 
@@ -343,25 +281,76 @@
     .top-controls{ width:100%; justify-content:stretch; }
     .top-controls .btn{ flex:1; }
   }
-
-/* Header: stack title/nav and controls on smaller screens */
-@media (max-width: 900px){
-  .topbar-inner{
-    flex-direction:column;
-    align-items:stretch;
-  }
-  .top-controls{
-    justify-content:flex-start;
-    width:100%;
-  }
-  .top-search{
-    width:100%;
-    min-width:0;
-  }
-}
-
 </style>
 
+
+
+<style>
+  /* Responsive improvements (no markup changes) */
+  .topbar-inner{
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .title{ min-width: 220px; }
+  .nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:8px;
+  }
+  .nav .pill{
+    max-width: 100%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Fluid page padding */
+  .topbar-inner,
+  .grid{
+    padding-left: clamp(12px, 3vw, 16px);
+    padding-right: clamp(12px, 3vw, 16px);
+  }
+
+  /* Content readability on narrow screens */
+  @media (max-width: 720px){
+    .title h1{ font-size: 15px; }
+    .title p{ font-size: 12.5px; }
+    details{ padding: 10px; }
+    details > summary{ font-size: 13.5px; }
+  }
+
+  /* Make wide tables usable on small screens (horizontal scroll) */
+  .content{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .content table{
+    min-width: 820px;
+  }
+  @media (max-width: 860px){
+    .content table{ min-width: 760px; }
+  }
+  @media (max-width: 560px){
+    .content table{ min-width: 680px; }
+  }
+
+  /* Code blocks: keep them readable and prevent layout blowouts */
+  pre{
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  @media (max-width: 560px){
+    code{ font-size: 11.75px; }
+    pre{ padding: 10px; border-radius: 10px; }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior: auto !important; }
+    details > summary::after{ transition: none !important; }
+  }
+</style>
 
 </head>
 <body>
@@ -369,7 +358,9 @@
     <div class="topbar-inner">
       <div class="title">
         <h1>Standard + Persona</h1>
-        <p>Outputs generated using a standardized prompt structure with defined user persona.</p>
+        <p><p>
+Outputs generated using a standardized prompt structure with defined user persona.
+</p>
     <nav class="nav" aria-label="Site">
       <a class="pill" href="/A11yBench">Overview</a>
       <a class="pill" href="/default">Default</a>
