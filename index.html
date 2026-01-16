@@ -825,7 +825,47 @@ Operational reference condition. Only constrains output format; the task is desc
 
           </p>
         </details>
-        
+        <!-- Drop this directly under your Linguistic variants table (or replace the existing "Why linguistic variants" block).
+     It uses titles (not citation strings), each with its own link, and it won’t look cluttered. -->
+
+<details>
+  <summary>Why these five variants</summary>
+
+  <div class="steps">
+    <p class="muted">
+      We use five surface forms that span pragmatic force, specification compactness, and convention signaling.
+      Each form keeps the same request intent while changing how it is expressed.
+    </p>
+
+    <p class="muted">
+      <span class="tag">Pragmatic force</span>
+      G1 and G4 use directive wording, while G3 uses an artifact description. This contrast is grounded in classic work on speech acts:
+      <a href="https://books.google.com/books?hl=en&lr=&id=B3ILEAAAQBAJ&oi=fnd&pg=PA1&dq=Austin,+J.+L.+(1962).+How+to+Do+Things+with+Words.&ots=ike-YBiot7&sig=1xBipRmVOYgkG9MRlJxEpaHPiBY#v=onepage&q=Austin%2C%20J.%20L.%20(1962).%20How%20to%20Do%20Things%20with%20Words.&f=false"
+         target="_blank" rel="noopener noreferrer"><em>How to Do Things with Words</em></a>
+      and
+      <a href="https://books.google.com/books?hl=en&lr=&id=4UKbAAAAQBAJ&oi=fnd&pg=PA1&dq=An+Essay+in+the+Philosophy+of+Language.&ots=u5wr7tKAx4&sig=UG0npEF4BF0Rb6xujZcCVlBJkyk#v=onepage&q=An%20Essay%20in%20the%20Philosophy%20of%20Language.&f=false"
+         target="_blank" rel="noopener noreferrer"><em>Speech Acts: An Essay in the Philosophy of Language</em></a>.
+    </p>
+
+    <p class="muted">
+      <span class="tag">Specification compactness</span>
+      G2 mirrors compact, task-oriented phrasing used in lightweight developer workflows.
+      We motivate this choice using evidence from modern tool-based code review:
+      <a href="https://ieeexplore.ieee.org/abstract/document/6606617"
+         target="_blank" rel="noopener noreferrer"><em>Expectations, Outcomes, and Challenges of Modern Code Review</em></a>.
+    </p>
+
+    <p class="muted">
+      <span class="tag">Convention signaling</span>
+      G5 introduces “accessible” as a convention cue without prescribing steps.
+      Prior accessibility research shows that accessibility terminology can shape interpretation and expectations in human design settings even when underspecified:
+      <a href="https://dl.acm.org/doi/10.1145/1978942.1979044"
+         target="_blank" rel="noopener noreferrer"><em>In the Shadow of Misperception: Assistive Technology Use and Social Interactions</em></a>.
+      We use this framing to test whether the same cue shifts LLM-generated HTML under fixed output constraints.
+    </p>
+  </div>
+</details>
+
 
         <div class="hr"></div>
 
