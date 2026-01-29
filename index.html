@@ -1242,6 +1242,225 @@
                     </p>
                 </details>
 
+                <details>
+  <summary>Rubric schema: all checks (24) and WCAG 2.2 mapping</summary>
+
+  <p class="muted">
+    Our rubric defines <strong>24 reusable checks</strong>. Each component scores only the subset listed in its
+    <code>checks</code> field, so the number of applicable obligations (<code>K</code>) varies by component.
+    WCAG references below (e.g., <code>1.3.1</code>) are <strong>WCAG 2.2 Success Criteria identifiers</strong>.
+    ARIA is expected only when native HTML cannot encode required relationships or announcements.
+  </p>
+
+  <div class="table-wrap" role="region" aria-label="Rubric checks and WCAG mapping">
+    <table>
+      <thead>
+        <tr>
+          <th class="nowrap">Check ID</th>
+          <th class="nowrap">What it checks</th>
+          <th class="nowrap">WCAG 2.2 SC</th>
+          <th>How it’s typically satisfied in HTML</th>
+          <th class="nowrap">ARIA expected?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="nowrap"><code>DOC_VALID_HTML</code></td>
+          <td>Valid HTML fragment and no forbidden content</td>
+          <td class="nowrap">4.1.1</td>
+          <td>Well-formed tags; no markdown fences; no forbidden tags (e.g., <code>&lt;script&gt;</code>/<code>&lt;style&gt;</code>) when prohibited.</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>NAME_ROLE_VALUE_NATIVE</code></td>
+          <td>Correct native element for intended role/state</td>
+          <td class="nowrap">4.1.2</td>
+          <td>Use native controls (<code>input</code>/<code>select</code>/<code>textarea</code>/<code>button</code>) instead of <code>div</code> + ARIA; avoid role overrides that misstate semantics.</td>
+          <td class="nowrap">Only if needed</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>LABEL_ASSOCIATION</code></td>
+          <td>Programmatic label association for the primary control</td>
+          <td class="nowrap">1.3.1, 3.3.2, 4.1.2</td>
+          <td><code>&lt;label for="id"&gt;</code> + matching <code>id</code>, or implicit label nesting.</td>
+          <td class="nowrap">Sometimes</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>LABEL_VISIBLE_OR_EQUIV</code></td>
+          <td>Label present and not replaced by placeholder</td>
+          <td class="nowrap">3.3.2, 1.3.1</td>
+          <td>Visible label text exists; placeholder may exist but does not substitute for labeling.</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>NONVISIBLE_LABEL_OK</code></td>
+          <td>Non-visible label still exists programmatically</td>
+          <td class="nowrap">1.3.1, 3.3.2, 4.1.2</td>
+          <td>Label remains in DOM (e.g., visually hidden technique) without removing it from AT exposure.</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>DESCRIPTION_ASSOCIATION</code></td>
+          <td>Help/description text is programmatically associated</td>
+          <td class="nowrap">1.3.1, 3.3.2</td>
+          <td>External help text linked via <code>aria-describedby</code> to an element with an <code>id</code>.</td>
+          <td class="nowrap">Yes</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>REQUIRED_STATE</code></td>
+          <td>Required state encoded</td>
+          <td class="nowrap">3.3.2, 4.1.2</td>
+          <td>Prefer native <code>required</code>; allow <code>aria-required="true"</code> only when native cannot be used.</td>
+          <td class="nowrap">Sometimes</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>REQUIRED_CUE_EXPLAINED</code></td>
+          <td>Required cue is understandable</td>
+          <td class="nowrap">3.3.2</td>
+          <td>If using an asterisk or cue, include text like “Required” or an associated explanation.</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>AUTOCOMPLETE_PRESENT</code></td>
+          <td>Autocomplete attribute present when applicable</td>
+          <td class="nowrap">1.3.5</td>
+          <td>Add <code>autocomplete</code> with a meaningful token when the prompt specifies it (or the field purpose clearly implies it in your rubric).</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>AUTOCOMPLETE_VALID_TOKEN</code></td>
+          <td>Autocomplete token appropriate for field purpose</td>
+          <td class="nowrap">1.3.5</td>
+          <td>Use valid tokens like <code>email</code>, <code>given-name</code>, <code>cc-number</code>; avoid mismatches.</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>INPUT_TYPE_MATCHES_PURPOSE</code></td>
+          <td>Input type matches field purpose</td>
+          <td class="nowrap">4.1.2</td>
+          <td>Use <code>type="email|url|tel|password|search|date|time|datetime-local|number|range"</code> where appropriate.</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>CONSTRAINT_PATTERN_EXPLAINED</code></td>
+          <td>Pattern/format constraint explained to user</td>
+          <td class="nowrap">3.3.2, 3.3.3</td>
+          <td>If using <code>pattern</code> or a format rule, provide human-readable guidance in nearby text.</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>ERROR_PRESENT</code></td>
+          <td>Error message exists in text when requested</td>
+          <td class="nowrap">3.3.1, 3.3.3</td>
+          <td>Render a textual error message that identifies what’s wrong (per the prompt).</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>ERROR_ASSOCIATED</code></td>
+          <td>Error message programmatically associated to control/group</td>
+          <td class="nowrap">1.3.1, 3.3.1</td>
+          <td>Link the error element via <code>aria-describedby</code> (or equivalent association) using stable IDs.</td>
+          <td class="nowrap">Yes</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>ERROR_INVALID_STATE</code></td>
+          <td>Invalid state encoded</td>
+          <td class="nowrap">3.3.1, 4.1.2</td>
+          <td>Set <code>aria-invalid="true"</code> when an error is present for that field/group.</td>
+          <td class="nowrap">Yes</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>STATUS_ANNOUNCE</code></td>
+          <td>Status/error announcements support AT when requested</td>
+          <td class="nowrap">4.1.3</td>
+          <td>Use <code>role="alert"</code> or <code>aria-live</code> on the status/error container when the component includes status messaging.</td>
+          <td class="nowrap">Yes</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>GROUP_FIELDSET_LEGEND</code></td>
+          <td>Related controls grouped with fieldset/legend</td>
+          <td class="nowrap">1.3.1, 2.4.6</td>
+          <td>Use <code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code> for radio/checkbox groups with a group label.</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>RADIO_SAME_NAME</code></td>
+          <td>Radio options share the same name</td>
+          <td class="nowrap">4.1.2</td>
+          <td>Every radio option has identical <code>name</code> so AT and browsers treat them as one group.</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>EACH_OPTION_LABELED</code></td>
+          <td>Each option has its own programmatic label</td>
+          <td class="nowrap">1.3.1, 3.3.2</td>
+          <td>Every checkbox/radio has a <code>&lt;label for&gt;</code> association (or implicit label nesting).</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>DISABLED_STATE</code></td>
+          <td>Disabled state encoded correctly</td>
+          <td class="nowrap">4.1.2</td>
+          <td>Use native <code>disabled</code>; keep label association intact.</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>READONLY_STATE</code></td>
+          <td>Readonly state encoded correctly</td>
+          <td class="nowrap">4.1.2</td>
+          <td>Use native <code>readonly</code>; keep label association intact.</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>FILE_INPUT_SEMANTICS</code></td>
+          <td>File input uses correct native semantics</td>
+          <td class="nowrap">4.1.2</td>
+          <td>Use <code>&lt;input type="file"&gt;</code> plus relevant attributes like <code>accept</code>/<code>multiple</code> when required by the prompt.</td>
+          <td class="nowrap">No</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>BUTTON_TYPE_AND_NAME</code></td>
+          <td>Button has correct type and accessible name</td>
+          <td class="nowrap">4.1.2, 2.4.6</td>
+          <td><code>&lt;button type="submit|reset"&gt;Text&lt;/button&gt;</code>; icon-only requires a text alternative (e.g., <code>aria-label</code>).</td>
+          <td class="nowrap">Sometimes</td>
+        </tr>
+
+        <tr>
+          <td class="nowrap"><code>NO_UNEXPECTED_CHANGE</code></td>
+          <td>No unexpected contextual change on focus/input</td>
+          <td class="nowrap">3.2.1, 3.2.2</td>
+          <td>No markup implying auto-submit/navigation on focus or input; no onchange-driven behavior implied in HTML-only output.</td>
+          <td class="nowrap">No</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+
                 <h3 id="rubric">Component-specific rubric</h3>
 
                 <p class="muted">
