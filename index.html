@@ -25,7 +25,7 @@
         * {
             box-sizing: border-box
         }
-        
+
 
         html,
         body {
@@ -381,75 +381,75 @@
             }
         }
 
-        body{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-.main-content{
-  flex: 1;
-  padding-bottom: 120px; /* lots of space at bottom */
-}
+        .main-content {
+            flex: 1;
+            padding-bottom: 120px;
+            /* lots of space at bottom */
+        }
 
-.site-footer{
-  padding: 0 16px 24px;
-}
+        .site-footer {
+            padding: 0 16px 24px;
+        }
 
-/* Research questions block in hero */
-.rq{
-  margin-top: 10px;
-  padding: 12px 12px;
-  border-radius: 14px;
-  background: rgba(0,0,0,.02);
-  border: 1px solid var(--border);
-}
+        /* Research questions block in hero */
+        .rq {
+            margin-top: 10px;
+            padding: 12px 12px;
+            border-radius: 14px;
+            background: rgba(0, 0, 0, .02);
+            border: 1px solid var(--border);
+        }
 
-.rq-title{
-  margin: 0 0 8px;
-  font-size: 13px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
+        .rq-title {
+            margin: 0 0 8px;
+            font-size: 13px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
 
-.rq-list{
-  margin: 0;
-  padding-left: 18px;
-  display: grid;
-  gap: 8px;
-}
+        .rq-list {
+            margin: 0;
+            padding-left: 18px;
+            display: grid;
+            gap: 8px;
+        }
 
-.rq-list {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
+        .rq-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
 
-.rq-list li {
-  margin: 6px 0;
-}
+        .rq-list li {
+            margin: 6px 0;
+        }
 
-.rq-id {
-  font-weight: 700;
-  margin-right: 6px;
-}
+        .rq-id {
+            font-weight: 700;
+            margin-right: 6px;
+        }
 
 
-.rq-id{
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: var(--tag);
-  color: var(--tagtext);
-  border: 1px solid rgba(55, 48, 163, .18);
-  font-size: 12px;
-  font-weight: 800;
-  margin-right: 8px;
-  white-space: nowrap;
-}
-
+        .rq-id {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: var(--tag);
+            color: var(--tagtext);
+            border: 1px solid rgba(55, 48, 163, .18);
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 8px;
+            white-space: nowrap;
+        }
     </style>
 </head>
 
@@ -485,17 +485,22 @@
                     of single-shot initial prompting conditions and linguistic variants, our evaluation and
                     accessibility scoring, and results.
                 </p>
-<div class="rq" role="note" aria-label="Research questions">
-  <h2 class="rq-title">Research questions</h2>
-  <ul class="rq-list">
-    <li><span class="rq-id">RQ1</span> How does initial prompt structure affect the accessibility of LLM-generated HTML form components?</li>
-    <li><span class="rq-id">RQ2</span> To what extent does linguistic phrasing of the same request influence the accessibility of LLM-generated HTML form components?</li>
-    <li><span class="rq-id">RQ3</span> How do prompt structure and linguistic phrasing interact in shaping the accessibility of LLM-generated HTML form components?</li>
-    <!-- <li><span class="rq-id">RQ4</span> To what extent can accessibility be improved through structured post-generation feedback when starting from minimal prompts?</li> -->
-     <li><span class="rq-id">RQ4</span>Do certain HTML form components achieve higher accessibility than others under different initial prompt structures and linguistic phrasings?</li>
-    <li><span class="rq-id">RQ5</span> How consistent are prompt-framing effects on accessibility across LLMs commonly used in real-world programming workflows?</li>
-  </ul>
-</div>
+                <div class="rq" role="note" aria-label="Research questions">
+                    <h2 class="rq-title">Research questions</h2>
+                    <ul class="rq-list">
+                        <li><span class="rq-id">RQ1</span> How does initial prompt structure affect the accessibility of
+                            LLM-generated HTML form components?</li>
+                        <li><span class="rq-id">RQ2</span> To what extent does linguistic phrasing of the same request
+                            influence the accessibility of LLM-generated HTML form components?</li>
+                        <li><span class="rq-id">RQ3</span> How do prompt structure and linguistic phrasing interact in
+                            shaping the accessibility of LLM-generated HTML form components?</li>
+                        <!-- <li><span class="rq-id">RQ4</span> To what extent can accessibility be improved through structured post-generation feedback when starting from minimal prompts?</li> -->
+                        <li><span class="rq-id">RQ4</span>Do certain HTML form components achieve higher accessibility
+                            than others under different initial prompt structures and linguistic phrasings?</li>
+                        <li><span class="rq-id">RQ5</span> How consistent are prompt-framing effects on accessibility
+                            across LLMs commonly used in real-world programming workflows?</li>
+                    </ul>
+                </div>
 
 
                 <div class="chips" aria-label="At a glance">
@@ -1243,233 +1248,258 @@
                 </details>
 
                 <details>
-  <summary>Rubric schema: all checks (24) and WCAG 2.2 mapping</summary>
+                    <summary>Rubric schema: all checks (24) and WCAG 2.2 mapping</summary>
 
-  <p class="muted">
-    Our rubric defines <strong>24 reusable checks</strong>. Each component scores only the subset listed in its
-    <code>checks</code> field, so the number of applicable obligations (<code>K</code>) varies by component.
-    WCAG references below (e.g., <code>1.3.1</code>) are <strong>WCAG 2.2 Success Criteria identifiers</strong>.
-    ARIA is expected only when native HTML cannot encode required relationships or announcements.
-  </p>
+                    <p class="muted">
+                        Our rubric defines <strong>24 reusable checks</strong>. Each component scores only the subset
+                        listed in its
+                        <code>checks</code> field, so the number of applicable obligations (<code>K</code>) varies by
+                        component.
+                        WCAG references below (e.g., <code>1.3.1</code>) are <strong>WCAG 2.2 Success Criteria
+                            identifiers</strong>.
+                        ARIA is expected only when native HTML cannot encode required relationships or announcements.
+                    </p>
 
-  <div class="table-wrap" role="region" aria-label="Rubric checks and WCAG mapping">
-    <table>
-      <thead>
-        <tr>
-          <th class="nowrap">Check ID</th>
-          <th class="nowrap">What it checks</th>
-          <th class="nowrap">WCAG 2.2 SC</th>
-          <th>How it’s typically satisfied in HTML</th>
-          <th class="nowrap">ARIA expected?</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="nowrap"><code>DOC_VALID_HTML</code></td>
-          <td>Valid HTML fragment and no forbidden content</td>
-          <td class="nowrap">4.1.1</td>
-          <td>Well-formed tags; no markdown fences; no forbidden tags (e.g., <code>&lt;script&gt;</code>/<code>&lt;style&gt;</code>) when prohibited.</td>
-          <td class="nowrap">No</td>
-        </tr>
+                    <div class="table-wrap" role="region" aria-label="Rubric checks and WCAG mapping">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="nowrap">Check ID</th>
+                                    <th class="nowrap">What it checks</th>
+                                    <th class="nowrap">WCAG 2.2 SC</th>
+                                    <th>How it’s typically satisfied in HTML</th>
+                                    <th class="nowrap">ARIA expected?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="nowrap"><code>DOC_VALID_HTML</code></td>
+                                    <td>Valid HTML fragment and no forbidden content</td>
+                                    <td class="nowrap">4.1.1</td>
+                                    <td>Well-formed tags; no markdown fences; no forbidden tags (e.g.,
+                                        <code>&lt;script&gt;</code>/<code>&lt;style&gt;</code>) when prohibited.</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>NAME_ROLE_VALUE_NATIVE</code></td>
-          <td>Correct native element for intended role/state</td>
-          <td class="nowrap">4.1.2</td>
-          <td>Use native controls (<code>input</code>/<code>select</code>/<code>textarea</code>/<code>button</code>) instead of <code>div</code> + ARIA; avoid role overrides that misstate semantics.</td>
-          <td class="nowrap">Only if needed</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>NAME_ROLE_VALUE_NATIVE</code></td>
+                                    <td>Correct native element for intended role/state</td>
+                                    <td class="nowrap">4.1.2</td>
+                                    <td>Use native controls
+                                        (<code>input</code>/<code>select</code>/<code>textarea</code>/<code>button</code>)
+                                        instead of <code>div</code> + ARIA; avoid role overrides that misstate
+                                        semantics.</td>
+                                    <td class="nowrap">Only if needed</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>LABEL_ASSOCIATION</code></td>
-          <td>Programmatic label association for the primary control</td>
-          <td class="nowrap">1.3.1, 3.3.2, 4.1.2</td>
-          <td><code>&lt;label for="id"&gt;</code> + matching <code>id</code>, or implicit label nesting.</td>
-          <td class="nowrap">Sometimes</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>LABEL_ASSOCIATION</code></td>
+                                    <td>Programmatic label association for the primary control</td>
+                                    <td class="nowrap">1.3.1, 3.3.2, 4.1.2</td>
+                                    <td><code>&lt;label for="id"&gt;</code> + matching <code>id</code>, or implicit
+                                        label nesting.</td>
+                                    <td class="nowrap">Sometimes</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>LABEL_VISIBLE_OR_EQUIV</code></td>
-          <td>Label present and not replaced by placeholder</td>
-          <td class="nowrap">3.3.2, 1.3.1</td>
-          <td>Visible label text exists; placeholder may exist but does not substitute for labeling.</td>
-          <td class="nowrap">No</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>LABEL_VISIBLE_OR_EQUIV</code></td>
+                                    <td>Label present and not replaced by placeholder</td>
+                                    <td class="nowrap">3.3.2, 1.3.1</td>
+                                    <td>Visible label text exists; placeholder may exist but does not substitute for
+                                        labeling.</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>NONVISIBLE_LABEL_OK</code></td>
-          <td>Non-visible label still exists programmatically</td>
-          <td class="nowrap">1.3.1, 3.3.2, 4.1.2</td>
-          <td>Label remains in DOM (e.g., visually hidden technique) without removing it from AT exposure.</td>
-          <td class="nowrap">No</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>NONVISIBLE_LABEL_OK</code></td>
+                                    <td>Non-visible label still exists programmatically</td>
+                                    <td class="nowrap">1.3.1, 3.3.2, 4.1.2</td>
+                                    <td>Label remains in DOM (e.g., visually hidden technique) without removing it from
+                                        AT exposure.</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>DESCRIPTION_ASSOCIATION</code></td>
-          <td>Help/description text is programmatically associated</td>
-          <td class="nowrap">1.3.1, 3.3.2</td>
-          <td>External help text linked via <code>aria-describedby</code> to an element with an <code>id</code>.</td>
-          <td class="nowrap">Yes</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>DESCRIPTION_ASSOCIATION</code></td>
+                                    <td>Help/description text is programmatically associated</td>
+                                    <td class="nowrap">1.3.1, 3.3.2</td>
+                                    <td>External help text linked via <code>aria-describedby</code> to an element with
+                                        an <code>id</code>.</td>
+                                    <td class="nowrap">Yes</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>REQUIRED_STATE</code></td>
-          <td>Required state encoded</td>
-          <td class="nowrap">3.3.2, 4.1.2</td>
-          <td>Prefer native <code>required</code>; allow <code>aria-required="true"</code> only when native cannot be used.</td>
-          <td class="nowrap">Sometimes</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>REQUIRED_STATE</code></td>
+                                    <td>Required state encoded</td>
+                                    <td class="nowrap">3.3.2, 4.1.2</td>
+                                    <td>Prefer native <code>required</code>; allow <code>aria-required="true"</code>
+                                        only when native cannot be used.</td>
+                                    <td class="nowrap">Sometimes</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>REQUIRED_CUE_EXPLAINED</code></td>
-          <td>Required cue is understandable</td>
-          <td class="nowrap">3.3.2</td>
-          <td>If using an asterisk or cue, include text like “Required” or an associated explanation.</td>
-          <td class="nowrap">No</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>REQUIRED_CUE_EXPLAINED</code></td>
+                                    <td>Required cue is understandable</td>
+                                    <td class="nowrap">3.3.2</td>
+                                    <td>If using an asterisk or cue, include text like “Required” or an associated
+                                        explanation.</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>AUTOCOMPLETE_PRESENT</code></td>
-          <td>Autocomplete attribute present when applicable</td>
-          <td class="nowrap">1.3.5</td>
-          <td>Add <code>autocomplete</code> with a meaningful token when the prompt specifies it (or the field purpose clearly implies it in your rubric).</td>
-          <td class="nowrap">No</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>AUTOCOMPLETE_PRESENT</code></td>
+                                    <td>Autocomplete attribute present when applicable</td>
+                                    <td class="nowrap">1.3.5</td>
+                                    <td>Add <code>autocomplete</code> with a meaningful token when the prompt specifies
+                                        it (or the field purpose clearly implies it in your rubric).</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>AUTOCOMPLETE_VALID_TOKEN</code></td>
-          <td>Autocomplete token appropriate for field purpose</td>
-          <td class="nowrap">1.3.5</td>
-          <td>Use valid tokens like <code>email</code>, <code>given-name</code>, <code>cc-number</code>; avoid mismatches.</td>
-          <td class="nowrap">No</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>AUTOCOMPLETE_VALID_TOKEN</code></td>
+                                    <td>Autocomplete token appropriate for field purpose</td>
+                                    <td class="nowrap">1.3.5</td>
+                                    <td>Use valid tokens like <code>email</code>, <code>given-name</code>,
+                                        <code>cc-number</code>; avoid mismatches.</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>INPUT_TYPE_MATCHES_PURPOSE</code></td>
-          <td>Input type matches field purpose</td>
-          <td class="nowrap">4.1.2</td>
-          <td>Use <code>type="email|url|tel|password|search|date|time|datetime-local|number|range"</code> where appropriate.</td>
-          <td class="nowrap">No</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>INPUT_TYPE_MATCHES_PURPOSE</code></td>
+                                    <td>Input type matches field purpose</td>
+                                    <td class="nowrap">4.1.2</td>
+                                    <td>Use
+                                        <code>type="email|url|tel|password|search|date|time|datetime-local|number|range"</code>
+                                        where appropriate.</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>CONSTRAINT_PATTERN_EXPLAINED</code></td>
-          <td>Pattern/format constraint explained to user</td>
-          <td class="nowrap">3.3.2, 3.3.3</td>
-          <td>If using <code>pattern</code> or a format rule, provide human-readable guidance in nearby text.</td>
-          <td class="nowrap">No</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>CONSTRAINT_PATTERN_EXPLAINED</code></td>
+                                    <td>Pattern/format constraint explained to user</td>
+                                    <td class="nowrap">3.3.2, 3.3.3</td>
+                                    <td>If using <code>pattern</code> or a format rule, provide human-readable guidance
+                                        in nearby text.</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>ERROR_PRESENT</code></td>
-          <td>Error message exists in text when requested</td>
-          <td class="nowrap">3.3.1, 3.3.3</td>
-          <td>Render a textual error message that identifies what’s wrong (per the prompt).</td>
-          <td class="nowrap">No</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>ERROR_PRESENT</code></td>
+                                    <td>Error message exists in text when requested</td>
+                                    <td class="nowrap">3.3.1, 3.3.3</td>
+                                    <td>Render a textual error message that identifies what’s wrong (per the prompt).
+                                    </td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>ERROR_ASSOCIATED</code></td>
-          <td>Error message programmatically associated to control/group</td>
-          <td class="nowrap">1.3.1, 3.3.1</td>
-          <td>Link the error element via <code>aria-describedby</code> (or equivalent association) using stable IDs.</td>
-          <td class="nowrap">Yes</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>ERROR_ASSOCIATED</code></td>
+                                    <td>Error message programmatically associated to control/group</td>
+                                    <td class="nowrap">1.3.1, 3.3.1</td>
+                                    <td>Link the error element via <code>aria-describedby</code> (or equivalent
+                                        association) using stable IDs.</td>
+                                    <td class="nowrap">Yes</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>ERROR_INVALID_STATE</code></td>
-          <td>Invalid state encoded</td>
-          <td class="nowrap">3.3.1, 4.1.2</td>
-          <td>Set <code>aria-invalid="true"</code> when an error is present for that field/group.</td>
-          <td class="nowrap">Yes</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>ERROR_INVALID_STATE</code></td>
+                                    <td>Invalid state encoded</td>
+                                    <td class="nowrap">3.3.1, 4.1.2</td>
+                                    <td>Set <code>aria-invalid="true"</code> when an error is present for that
+                                        field/group.</td>
+                                    <td class="nowrap">Yes</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>STATUS_ANNOUNCE</code></td>
-          <td>Status/error announcements support AT when requested</td>
-          <td class="nowrap">4.1.3</td>
-          <td>Use <code>role="alert"</code> or <code>aria-live</code> on the status/error container when the component includes status messaging.</td>
-          <td class="nowrap">Yes</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>STATUS_ANNOUNCE</code></td>
+                                    <td>Status/error announcements support AT when requested</td>
+                                    <td class="nowrap">4.1.3</td>
+                                    <td>Use <code>role="alert"</code> or <code>aria-live</code> on the status/error
+                                        container when the component includes status messaging.</td>
+                                    <td class="nowrap">Yes</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>GROUP_FIELDSET_LEGEND</code></td>
-          <td>Related controls grouped with fieldset/legend</td>
-          <td class="nowrap">1.3.1, 2.4.6</td>
-          <td>Use <code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code> for radio/checkbox groups with a group label.</td>
-          <td class="nowrap">No</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>GROUP_FIELDSET_LEGEND</code></td>
+                                    <td>Related controls grouped with fieldset/legend</td>
+                                    <td class="nowrap">1.3.1, 2.4.6</td>
+                                    <td>Use <code>&lt;fieldset&gt;</code> + <code>&lt;legend&gt;</code> for
+                                        radio/checkbox groups with a group label.</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>RADIO_SAME_NAME</code></td>
-          <td>Radio options share the same name</td>
-          <td class="nowrap">4.1.2</td>
-          <td>Every radio option has identical <code>name</code> so AT and browsers treat them as one group.</td>
-          <td class="nowrap">No</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>RADIO_SAME_NAME</code></td>
+                                    <td>Radio options share the same name</td>
+                                    <td class="nowrap">4.1.2</td>
+                                    <td>Every radio option has identical <code>name</code> so AT and browsers treat them
+                                        as one group.</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>EACH_OPTION_LABELED</code></td>
-          <td>Each option has its own programmatic label</td>
-          <td class="nowrap">1.3.1, 3.3.2</td>
-          <td>Every checkbox/radio has a <code>&lt;label for&gt;</code> association (or implicit label nesting).</td>
-          <td class="nowrap">No</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>EACH_OPTION_LABELED</code></td>
+                                    <td>Each option has its own programmatic label</td>
+                                    <td class="nowrap">1.3.1, 3.3.2</td>
+                                    <td>Every checkbox/radio has a <code>&lt;label for&gt;</code> association (or
+                                        implicit label nesting).</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>DISABLED_STATE</code></td>
-          <td>Disabled state encoded correctly</td>
-          <td class="nowrap">4.1.2</td>
-          <td>Use native <code>disabled</code>; keep label association intact.</td>
-          <td class="nowrap">No</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>DISABLED_STATE</code></td>
+                                    <td>Disabled state encoded correctly</td>
+                                    <td class="nowrap">4.1.2</td>
+                                    <td>Use native <code>disabled</code>; keep label association intact.</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>READONLY_STATE</code></td>
-          <td>Readonly state encoded correctly</td>
-          <td class="nowrap">4.1.2</td>
-          <td>Use native <code>readonly</code>; keep label association intact.</td>
-          <td class="nowrap">No</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>READONLY_STATE</code></td>
+                                    <td>Readonly state encoded correctly</td>
+                                    <td class="nowrap">4.1.2</td>
+                                    <td>Use native <code>readonly</code>; keep label association intact.</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>FILE_INPUT_SEMANTICS</code></td>
-          <td>File input uses correct native semantics</td>
-          <td class="nowrap">4.1.2</td>
-          <td>Use <code>&lt;input type="file"&gt;</code> plus relevant attributes like <code>accept</code>/<code>multiple</code> when required by the prompt.</td>
-          <td class="nowrap">No</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>FILE_INPUT_SEMANTICS</code></td>
+                                    <td>File input uses correct native semantics</td>
+                                    <td class="nowrap">4.1.2</td>
+                                    <td>Use <code>&lt;input type="file"&gt;</code> plus relevant attributes like
+                                        <code>accept</code>/<code>multiple</code> when required by the prompt.</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>BUTTON_TYPE_AND_NAME</code></td>
-          <td>Button has correct type and accessible name</td>
-          <td class="nowrap">4.1.2, 2.4.6</td>
-          <td><code>&lt;button type="submit|reset"&gt;Text&lt;/button&gt;</code>; icon-only requires a text alternative (e.g., <code>aria-label</code>).</td>
-          <td class="nowrap">Sometimes</td>
-        </tr>
+                                <tr>
+                                    <td class="nowrap"><code>BUTTON_TYPE_AND_NAME</code></td>
+                                    <td>Button has correct type and accessible name</td>
+                                    <td class="nowrap">4.1.2, 2.4.6</td>
+                                    <td><code>&lt;button type="submit|reset"&gt;Text&lt;/button&gt;</code>; icon-only
+                                        requires a text alternative (e.g., <code>aria-label</code>).</td>
+                                    <td class="nowrap">Sometimes</td>
+                                </tr>
 
-        <tr>
-          <td class="nowrap"><code>NO_UNEXPECTED_CHANGE</code></td>
-          <td>No unexpected contextual change on focus/input</td>
-          <td class="nowrap">3.2.1, 3.2.2</td>
-          <td>No markup implying auto-submit/navigation on focus or input; no onchange-driven behavior implied in HTML-only output.</td>
-          <td class="nowrap">No</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</details>
+                                <tr>
+                                    <td class="nowrap"><code>NO_UNEXPECTED_CHANGE</code></td>
+                                    <td>No unexpected contextual change on focus/input</td>
+                                    <td class="nowrap">3.2.1, 3.2.2</td>
+                                    <td>No markup implying auto-submit/navigation on focus or input; no onchange-driven
+                                        behavior implied in HTML-only output.</td>
+                                    <td class="nowrap">No</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
 
 
                 <h3 id="rubric">Component-specific rubric</h3>
 
                 <p class="muted">
-                    Each of the 58 form components is evaluated using a component-specific set of semantic
-                    obligations derived from
-                    WCAG guidance and established HTML accessibility patterns. Components vary in complexity, so the
-                    number of applicable obligations
-                    can differ by component (e.g., an error variant includes error-related obligations; a simple field
-                    may not).
+                    Each of the 58 form components is evaluated using a subset of the checks listed above. The
+                    applicable set varies by component type (e.g., error variants include error-related checks, while
+                    simple fields do not). Scores are computed only over the checks specified for that component.
                 </p>
 
                 <div class="table-wrap" role="region" aria-label="Rubric structure">
@@ -1507,102 +1537,103 @@
                 </div>
 
                 <p class="muted">
-  Scoring is performed automatically by applying the rubric to each generated HTML output.
-  Prior work has shown that large language models can act as structured evaluators when given
-  well-defined scoring rules, producing judgments that correlate with human assessment across
-  multiple domains (e.g.,
-  <a href="https://arxiv.org/abs/2306.05685" target="_blank" rel="noopener noreferrer">
-    Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena
-  </a>;
-  <a href="https://arxiv.org/html/2508.02994v1?utm" target="_blank" rel="noopener noreferrer">
-    When AIs Judge AIs: The Rise of Agent-as-a-Judge Evaluation for LLMs
-  </a>).
-  We follow this paradigm by defining obligation-level scoring rules grounded in WCAG and
-  applying them consistently at scale.
-</p>
+                    Scoring is performed automatically by applying the rubric to each generated HTML output.
+                    Prior work has shown that large language models can act as structured evaluators when given
+                    well-defined scoring rules, producing judgments that correlate with human assessment across
+                    multiple domains (e.g.,
+                    <a href="https://arxiv.org/abs/2306.05685" target="_blank" rel="noopener noreferrer">
+                        Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena
+                    </a>;
+                    <a href="https://arxiv.org/html/2508.02994v1?utm" target="_blank" rel="noopener noreferrer">
+                        When AIs Judge AIs: The Rise of Agent-as-a-Judge Evaluation for LLMs
+                    </a>).
+                    We follow this paradigm by defining obligation-level scoring rules grounded in WCAG and
+                    applying them consistently at scale.
+                </p>
 
-<p class="muted">
-  To check the validity of this procedure, one author manually scored a stratified sample of
-  generated components across multiple component types and prompting conditions using the same
-  rubric. Agreement between manual and automated scores was used to confirm that the rubric
-  yields sensible values on representative outputs.
-</p>
+                <p class="muted">
+                    To check the validity of this procedure, one author manually scored a stratified sample of
+                    generated components across multiple component types and prompting conditions using the same
+                    rubric. Agreement between manual and automated scores was used to confirm that the rubric
+                    yields sensible values on representative outputs.
+                </p>
 
 
-<h3 id="scale">0–5 obligation scoring (example: label association)</h3>
+                <h3 id="scale">0–5 obligation scoring (example: label association)</h3>
 
-<div class="table-wrap" role="region" aria-label="0 to 5 scoring scale with examples">
-  <table>
-    <thead>
-      <tr>
-        <th class="nowrap">Score</th>
-        <th class="nowrap">Meaning</th>
-        <th>Operational interpretation</th>
-        <th>Example</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>0</strong></td>
-        <td>Missing / wrong</td>
-        <td>The obligation is absent or implemented incorrectly.</td>
-        <td>
-<pre><code>&lt;input type="email"&gt;</code></pre>
-        </td>
-      </tr>
+                <div class="table-wrap" role="region" aria-label="0 to 5 scoring scale with examples">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="nowrap">Score</th>
+                                <th class="nowrap">Meaning</th>
+                                <th>Operational interpretation</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>0</strong></td>
+                                <td>Missing / wrong</td>
+                                <td>The obligation is absent or implemented incorrectly.</td>
+                                <td>
+                                    <pre><code>&lt;input type="email"&gt;</code></pre>
+                                </td>
+                            </tr>
 
-      <tr>
-        <td><strong>1</strong></td>
-        <td>Weak</td>
-        <td>A partial attempt exists but does not reliably encode the required semantics.</td>
-        <td>
-<pre><code>&lt;input type="email" title="Email"&gt;</code></pre>
-        </td>
-      </tr>
+                            <tr>
+                                <td><strong>1</strong></td>
+                                <td>Weak</td>
+                                <td>A partial attempt exists but does not reliably encode the required semantics.</td>
+                                <td>
+                                    <pre><code>&lt;input type="email" title="Email"&gt;</code></pre>
+                                </td>
+                            </tr>
 
-      <tr>
-        <td><strong>2</strong></td>
-        <td>Incomplete</td>
-        <td>The intended information is present in text but is not programmatically associated with the control.</td>
-        <td>
-<pre><code>&lt;p&gt;Email&lt;/p&gt;
+                            <tr>
+                                <td><strong>2</strong></td>
+                                <td>Incomplete</td>
+                                <td>The intended information is present in text but is not programmatically associated
+                                    with the control.</td>
+                                <td>
+                                    <pre><code>&lt;p&gt;Email&lt;/p&gt;
 &lt;input type="email"&gt;</code></pre>
-        </td>
-      </tr>
+                                </td>
+                            </tr>
 
-      <tr>
-        <td><strong>3</strong></td>
-        <td>Mostly correct</td>
-        <td>Semantics are largely correct but contain minor errors or fragile references.</td>
-        <td>
-<pre><code>&lt;label id="lbl"&gt;Email&lt;/label&gt;
+                            <tr>
+                                <td><strong>3</strong></td>
+                                <td>Mostly correct</td>
+                                <td>Semantics are largely correct but contain minor errors or fragile references.</td>
+                                <td>
+                                    <pre><code>&lt;label id="lbl"&gt;Email&lt;/label&gt;
 &lt;input type="email" aria-labelledby="wrong-id"&gt;</code></pre>
-        </td>
-      </tr>
+                                </td>
+                            </tr>
 
-      <tr>
-        <td><strong>4</strong></td>
-        <td>Correct</td>
-        <td>Semantics are correctly encoded and usable.</td>
-        <td>
-<pre><code>&lt;label&gt;Email
+                            <tr>
+                                <td><strong>4</strong></td>
+                                <td>Correct</td>
+                                <td>Semantics are correctly encoded and usable.</td>
+                                <td>
+                                    <pre><code>&lt;label&gt;Email
   &lt;input type="email"&gt;
 &lt;/label&gt;</code></pre>
-        </td>
-      </tr>
+                                </td>
+                            </tr>
 
-      <tr>
-        <td><strong>5</strong></td>
-        <td>Correct &amp; unambiguous</td>
-        <td>Semantics are correct and written in the clearest standard HTML form.</td>
-        <td>
-<pre><code>&lt;label for="email"&gt;Email&lt;/label&gt;
+                            <tr>
+                                <td><strong>5</strong></td>
+                                <td>Correct &amp; unambiguous</td>
+                                <td>Semantics are correct and written in the clearest standard HTML form.</td>
+                                <td>
+                                    <pre><code>&lt;label for="email"&gt;Email&lt;/label&gt;
 &lt;input id="email" type="email"&gt;</code></pre>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <h3 id="design">Experimental design and number of generations</h3>
 
@@ -1776,37 +1807,42 @@
                     </table>
                 </div> -->
                 <details open>
-  <summary>Step-by-step evaluation pipeline</summary>
-  <div class="steps">
-<p>
-  <span class="tag">Step 1</span>
-  Generate HTML for a target form component under a fixed condition (provider/model × prompt structure × linguistic variant).
-</p>
+                    <summary>Step-by-step evaluation pipeline</summary>
+                    <div class="steps">
+                        <p>
+                            <span class="tag">Step 1</span>
+                            Generate HTML for a target form component under a fixed condition (provider/model × prompt
+                            structure × linguistic variant).
+                        </p>
 
-    <p>
-      <span class="tag">Step 2</span>
-      Score all applicable semantic obligations for the output on a 0–5 scale and sum them to obtain a raw component score.
-    </p>
+                        <p>
+                            <span class="tag">Step 2</span>
+                            Score all applicable semantic obligations for the output on a 0–5 scale and sum them to
+                            obtain a raw component score.
+                        </p>
 
-    <p>
-      <span class="tag">Step 3</span>
-      Normalize the raw score by the component’s maximum attainable score so that results fall within
-      <code>[0, 1]</code> and are comparable across components.
-    </p>
+                        <p>
+                            <span class="tag">Step 3</span>
+                            Normalize the raw score by the component’s maximum attainable score so that results fall
+                            within
+                            <code>[0, 1]</code> and are comparable across components.
+                        </p>
 
-    <p>
-  <span class="tag">Step 4</span>
-  Repeat Steps 1–3 for 10 independent trials (runs) of the same component under the same condition,
-  producing 10 normalized scores.
-</p>
+                        <p>
+                            <span class="tag">Step 4</span>
+                            Repeat Steps 1–3 for 10 independent trials (runs) of the same component under the same
+                            condition,
+                            producing 10 normalized scores.
+                        </p>
 
-    <p>
-      <span class="tag">Step 5</span>
-      Compute the mean and standard deviation of these 10 scores in R to estimate expected accessibility
-      performance and variability.
-    </p>
-  </div>
-</details>
+                        <p>
+                            <span class="tag">Step 5</span>
+                            Compute the mean and standard deviation of these 10 scores in R to estimate expected
+                            accessibility
+                            performance and variability.
+                        </p>
+                    </div>
+                </details>
 
 
                 <!-- ===== End UPDATED Evaluation & Accessibility scoring ===== -->
@@ -1816,14 +1852,14 @@
 
                 <h2 id="prompting">Results</h2>
                 <p class="muted">
-                    <p class="muted">
-  <!-- We report results at two levels. (1) For each form component, we compare mean normalized scores across
+                <p class="muted">
+                    <!-- We report results at two levels. (1) For each form component, we compare mean normalized scores across
   models and prompt conditions to evaluate how well each system generates accessible HTML for the same component.
   (2) We also summarize results across many components when helpful to show overall trends across the benchmark.
   Normalization prevents components with more scoring rules from appearing worse or better solely because
   they have more obligations.  -->
-  Coming soon!
-</p>
+                    Coming soon!
+                </p>
 
                 </p>
             </div>
@@ -1832,12 +1868,13 @@
 </body>
 
 <footer class="site-footer" aria-label="Page footer">
-  <div class="wrap">
-    <div class="hr"></div>
-<p class="muted" style="margin: 0; display: flex; align-items: center; justify-content: flex-end; gap: 10px; flex-wrap: wrap;">
-      <span>made by yumeng ma <math></math></span>
-    </p>
-  </div>
+    <div class="wrap">
+        <div class="hr"></div>
+        <p class="muted"
+            style="margin: 0; display: flex; align-items: center; justify-content: flex-end; gap: 10px; flex-wrap: wrap;">
+            <span>made by yumeng ma <math></math></span>
+        </p>
+    </div>
 </footer>
 
 
