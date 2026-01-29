@@ -1211,45 +1211,6 @@
                     </div>
                 </details>
 
-                <!-- <p class="muted">
-  We operationalize accessibility as the presence and correctness of semantic structures required for assistive technologies
-  to interpret form components, rather than as visual or interaction-level compliance.
-  Because generation is restricted to HTML only, evaluation targets markup-level obligations grounded in WCAG&nbsp;2.2
-  success criteria related to labels, grouping, required state, descriptions, and error semantics
-  (e.g., 1.3.1 Info and Relationships, 2.4.6 Headings and Labels, 3.3.1 Error Identification, 4.1.2 Name, Role, Value).
-</p>
-
-<p class="muted">
-  For each of the 58 benchmarked form components, we define a component-specific rubric consisting of five required
-  semantic obligations derived from WCAG guidance and established HTML accessibility patterns
-  (e.g., label association for single inputs, fieldset–legend grouping for option groups,
-  and programmatic association of help or error text).
-</p>
-
-<p class="muted">
-  Each obligation is scored on a 0–5 ordinal scale, where 0 indicates absence or incorrect implementation and
-  5 indicates correct, unambiguous implementation using native HTML semantics when available.
-  Obligations that are not applicable to a given component
-  (e.g., error association for components without an error condition) are excluded from that component’s score.
-</p>
-
-<p class="muted">
-  Because large language model outputs are stochastic, we generate each component under each
-  provider–prompt–linguistic condition ten independent times.
-  We score every generation using the same rubric and compute a mean accessibility score and standard deviation
-  for each component–condition pair.
-  This procedure estimates both expected accessibility performance and sensitivity to sampling variation,
-  consistent with prior work on prompt robustness and LLM variability.
-</p>
-
-<p class="muted">
-  Component scores are normalized to the range [0, 1] by dividing by the maximum attainable score for that component.
-  Aggregate results are reported as (1) mean normalized accessibility score across components and
-  (2) distributional statistics capturing variance across repeated generations.
-  This design isolates differences attributable to prompt framing and linguistic variation while holding output format,
-  component definition, and scoring criteria constant.
-</p> -->
-
                 <!-- ===== Evaluation & Accessibility scoring ===== -->
 
                 <div class="hr"></div>
@@ -1324,6 +1285,29 @@
                         </tbody>
                     </table>
                 </div>
+
+                <p class="muted">
+  Scoring is performed automatically by applying the rubric to each generated HTML output.
+  Prior work has shown that large language models can act as structured evaluators when given
+  well-defined scoring rules, producing judgments that correlate with human assessment across
+  multiple domains (e.g.,
+  <a href="https://arxiv.org/abs/2306.05685" target="_blank" rel="noopener noreferrer">
+    Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena
+  </a>;
+  <a href="https://arxiv.org/html/2508.02994v1?utm" target="_blank" rel="noopener noreferrer">
+    When AIs Judge AIs: The Rise of Agent-as-a-Judge Evaluation for LLMs
+  </a>).
+  We follow this paradigm by defining obligation-level scoring rules grounded in WCAG and
+  applying them consistently at scale.
+</p>
+
+<p class="muted">
+  To check the validity of this procedure, one author manually scored a stratified sample of
+  generated components across multiple component types and prompting conditions using the same
+  rubric. Agreement between manual and automated scores was used to confirm that the rubric
+  yields sensible values on representative outputs.
+</p>
+
 
 <h3 id="scale">0–5 obligation scoring (example: label association)</h3>
 
@@ -1424,7 +1408,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="nowrap"><strong>Providers</strong></td>
+                                <td class="nowrap"><strong>Models</strong></td>
                                 <td class="nowrap">7</td>
                                 <td class="muted">One model per included provider.</td>
                             </tr>
@@ -1595,12 +1579,6 @@
   Repeat Steps 1–3 for 10 independent trials (runs) of the same component under the same condition,
   producing 10 normalized scores.
 </p>
-
-    <p>
-      <span class="tag">Step 4</span>
-      Repeat Steps 1–3 for 10 independent generations of the same component under the same condition,
-      producing 10 normalized scores.
-    </p>
 
     <p>
       <span class="tag">Step 5</span>
